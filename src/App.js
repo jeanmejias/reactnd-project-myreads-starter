@@ -22,7 +22,16 @@ updateShelf = (book, shelf) => {
     this.setState({books})
   })
 }
-
+render() {
+  return (
+    <div className="app">
+    <Route exact path='/search' render={() => (
+      <SearchBook books={this.state.books} updateShelf={this.updateShelf}/>
+    )}/>
+    <Route exact path='/' render={() => (
+      <MainPage books={this.state.books} updateShelf={this.updateShelf}/>
+    )}/>
+    </div>
 
   )
 }
